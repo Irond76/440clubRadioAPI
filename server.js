@@ -6,9 +6,10 @@ const app = express();
 const port = process.env.CLUBPORT || 5000;
 const DB = process.env.MONGODB_URL;
 const GetSongsRoute = require('./routes/Radio');
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 app.use('/api/v1/radio', GetSongsRoute);
-app.use(express.json());
 
 
 
