@@ -16,7 +16,7 @@ const startUp = async () => {
     try {
         mongoose.connect(DB);
         app.listen(port, () => {
-            console.log(`440club server listening on port ${port}\nConnected to the 440club radio Database `);
+            console.log(`440club server listening on port ${port}\nConnected to the 440club Radio Database `);
         });
     } catch (error) {
         console.log(error);
