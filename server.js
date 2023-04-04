@@ -2,9 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
 const DB = process.env.MONGODB_URL;
+app.use(cors({
+    origin: "*"
+}))
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 const GetSongsRoute = require('./routes/Radio');
