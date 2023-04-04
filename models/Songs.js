@@ -6,10 +6,10 @@ const songSchema = new mongoose.Schema({
     songTitle: {type: String, required: true},
     websiteURL: {type: String, required: true},
     songURL: {type: String, required: true},
-    songLikes: {type: Number}
+    songLikes: {type: Number,  default: 1  }
 },
 {
-    timestamps: true
+    timestamps: new Date
 }
 );
 

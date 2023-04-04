@@ -1,20 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
 const port = process.env.CLUBPORT || 5000;
 const DB = process.env.MONGODB_URL;
-const cloudinary = require('cloudinary').v2;
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.API_SECRET,
-});
-const GetSongsRoute = require('./routes/Radio');
+app.use(cors({
+    origin: 'http://localhost:5555'
+}));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+const GetSongsRoute = require('./routes/Radio');
+const GetRadioPlays = require('./routes/RadioPlayer');
 app.use('/api/v1/radio', GetSongsRoute);
+app.use('/api/v1/radio-player', GetRadioPlays)
 
 
 
