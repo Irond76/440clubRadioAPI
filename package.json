@@ -4,7 +4,7 @@
   "description": "440club radio server api",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Dale Bendixen",
   "license": "ISC",
