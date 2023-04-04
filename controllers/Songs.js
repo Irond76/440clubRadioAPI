@@ -8,7 +8,7 @@ const PostSongs =  async (req, res) => {
     const {artistName, songTitle, websiteURL, songURL} = req.body;
     const newSong = new Songs({ artistName, songTitle,websiteURL,songURL});
     await newSong.save();
-    res.status(201).json({msg: 'Song Created', data: newSong});
+    res.status(201).send(newSong);
 };
 
 
