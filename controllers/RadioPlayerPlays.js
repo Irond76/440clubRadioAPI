@@ -7,8 +7,8 @@ const GetRadioPlays =  async (req, res) => {
 };
 const PostRadioPlays =  async (req, res) => {
     const {radioPlays} = req.body;
-    const newRadioPlaysNumber = new RadioPlays(radioPlays);
-    await RadioPlays.save();
+    const newRadioPlaysNumber = new RadioPlays({radioPlays});
+    await newRadioPlaysNumber.save();
     res.status(201).json({msg: 'Radio Plays Updated', data: newRadioPlaysNumber});
 };
 
