@@ -6,10 +6,17 @@ const GetRadioPlays =  async (req, res) => {
     res.status(200).send(radioPlays);
 };
 const PostRadioPlays =  async (req, res) => {
-    const {radioPlays} = req.body;
-    const newRadioPlaysNumber = new RadioPlays({radioPlays});
-    await newRadioPlaysNumber.save();
-    res.status(201).json({msg: 'Radio Plays Updated', data: newRadioPlaysNumber});
+    try {
+        const {id:radioPlayer} = req.params;
+        const radioPlayNumber = await RadioPlays.findOneAndUpdate({_id: radioPlayer}, req.body, {
+            new:true,
+            runValidators: true
+        });
+        res.status(201).json({radioPlayNumber});
+        
+    } catch (error) {
+        res.status(500).json({msg: error});
+    }
 };
 
 module.exports = {
