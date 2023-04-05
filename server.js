@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const DB = process.env.MONGODB_URL;
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://440club.com']
+    origin: '*'
 }))
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
