@@ -8,7 +8,8 @@ const GetRadioPlays =  async (req, res) => {
 const PostRadioPlays =  async (req, res) => {
     try {
         const {id:radioPlayer} = req.params;
-        const radioPlayNumber = await RadioPlays.findOneAndUpdate({_id: radioPlayer}, req.body, {
+        const playCounts = req.body;
+        const radioPlayNumber = await RadioPlays.findOneAndUpdate({_id: radioPlayer}, playCounts, {
             new:true,
             runValidators: true
         });
