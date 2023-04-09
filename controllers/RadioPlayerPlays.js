@@ -9,7 +9,7 @@ const PostRadioPlays =  async (req, res) => {
     try {
         const {id:radioPlayer} = req.params;
         const playCounts = req.body;
-        if (radioPlayer === 'null' || radioPlayer === undefined) {
+        if (playCounts === 'null' || playCounts === undefined) {
             return res.status(400).json({msg: "Radio Player ID Must be number"});
         }
         const radioPlayNumber = await RadioPlays.findOneAndUpdate({_id: radioPlayer}, playCounts, {
