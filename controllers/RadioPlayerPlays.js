@@ -13,7 +13,7 @@ const PostRadioPlays =  async (req, res) => {
             new:true,
             runValidators: true
         });
-        res.status(201).json({radioPlayNumber});
+        res.status(200).json({radioPlayNumber});
         
     } catch (error) {
         res.status(500).json({msg: error});
