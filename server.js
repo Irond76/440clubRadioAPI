@@ -8,13 +8,14 @@ const port = process.env.PORT || 5000;
 const DB = process.env.MONGODB_URL;
 app.use(cors({
     origin: '*'
-}))
+}));
+const checkPlayValue = require('./middleware/PlayCount');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 const GetSongsRoute = require('./routes/Radio');
 const GetRadioPlays = require('./routes/RadioPlayer');
 app.use('/api/v1/radio', GetSongsRoute);
-app.use('/api/v1/radio-player', GetRadioPlays)
+app.use('/api/v1/radio-player',checkPlayValue ,GetRadioPlays)
 
 
 
