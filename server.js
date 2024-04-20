@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended: true}));
 const GetSongsRoute = require('./routes/Radio');
 const GetRadioPlays = require('./routes/RadioPlayer');
 app.use('/api/v1/radio', GetSongsRoute);
-app.use('/api/v1/radio-player',GetRadioPlays)
+app.use('/api/v1/radio-player',GetRadioPlays);
 
 
 
